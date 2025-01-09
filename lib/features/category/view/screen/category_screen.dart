@@ -6,6 +6,7 @@ import 'package:products_api/core/widgets/drawer.dart';
 import 'package:products_api/features/category/cubit/category_cubit.dart';
 import 'package:products_api/features/category/cubit/category_state.dart';
 import 'package:products_api/features/category/view/widgets/success_widget.dart';
+import 'package:products_api/features/details/view/screen/details_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen(
@@ -29,8 +30,17 @@ class CategoryScreen extends StatelessWidget {
               return ListView.builder(
                 itemCount: state.categoryModel.length,
                 itemBuilder: (context, index) {
-                  return SuccessWidget(
-                    categoryModel: state.categoryModel[index],
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return DetailsScreen(
+                            categoryModel: state.categoryModel[index]);
+                      }));
+                    },
+                    child: SuccessWidget(
+                      categoryModel: state.categoryModel[index],
+                    ),
                   );
                 },
               );
