@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
             'https://www.ntiegypt.sci.eg/moodle/pluginfile.php/1/core_admin/logocompact/300x300/1725271317/NTI%20Logo.png',
             height: 200,
           ),
-          loader(),
+          splashLoader(),
         ],
       ),
     );

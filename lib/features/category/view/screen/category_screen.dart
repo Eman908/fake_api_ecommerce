@@ -47,7 +47,7 @@ class CategoryScreen extends StatelessWidget {
             } else if (state is FaluierState) {
               return Text(state.error);
             } else {
-              return loader();
+              return insideLoader();
             }
           },
         ),
