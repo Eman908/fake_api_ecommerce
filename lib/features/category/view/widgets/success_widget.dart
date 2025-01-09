@@ -13,6 +13,7 @@ class SuccessWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Card(
+        elevation: 0,
         color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
