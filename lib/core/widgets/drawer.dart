@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:products_api/core/constants/app_string.dart';
 import 'package:products_api/core/widgets/list_item.dart';
 import 'package:products_api/features/category/view/screen/category_screen.dart';
 
@@ -14,13 +15,13 @@ class MainDrawer extends StatelessWidget {
             height: 48,
           ),
           listItem(
-            txt: 'Electronics',
+            txt: AppString.electro,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const CategoryScreen(
-                    endPoint: 'electronics',
-                    title: 'Electronics',
+                    endPoint: AppString.electroEP,
+                    title: AppString.electro,
                   ),
                 ),
               );
@@ -30,13 +31,13 @@ class MainDrawer extends StatelessWidget {
             thickness: 1,
           ),
           listItem(
-            txt: 'Jewelery',
+            txt: AppString.jewl,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const CategoryScreen(
-                    endPoint: 'jewelery',
-                    title: 'Jewelery',
+                    endPoint: AppString.jewlEP,
+                    title: AppString.jewl,
                   ),
                 ),
               );
@@ -46,13 +47,13 @@ class MainDrawer extends StatelessWidget {
             thickness: 1,
           ),
           listItem(
-            txt: "Men's Clothes",
+            txt: AppString.menCloth,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const CategoryScreen(
-                    endPoint: "men's%20clothing",
-                    title: "Men's Clothes",
+                    endPoint: AppString.menClothEP,
+                    title: AppString.menCloth,
                   ),
                 ),
               );
@@ -62,13 +63,13 @@ class MainDrawer extends StatelessWidget {
             thickness: 1,
           ),
           listItem(
-            txt: "Women's Clothes",
+            txt: AppString.womenCloth,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const CategoryScreen(
-                    endPoint: "women's%20clothing",
-                    title: "Women's Clothes",
+                    endPoint: AppString.womenClothEP,
+                    title: AppString.womenCloth,
                   ),
                 ),
               );

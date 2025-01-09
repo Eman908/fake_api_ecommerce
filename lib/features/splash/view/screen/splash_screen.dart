@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:products_api/core/widgets/loader.dart';
 import 'package:products_api/features/home/view/screen/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -30,11 +30,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SpinKitFadingCube(
-        color: Colors.pink,
-        size: 100.0,
-      ),
+    return Scaffold(
+      body: loader(),
     );
   }
 }

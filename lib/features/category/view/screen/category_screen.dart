@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:products_api/core/widgets/app_bar.dart';
 import 'package:products_api/core/widgets/drawer.dart';
+import 'package:products_api/core/widgets/loader.dart';
 import 'package:products_api/features/category/cubit/category_cubit.dart';
 import 'package:products_api/features/category/cubit/category_state.dart';
 import 'package:products_api/features/category/view/widgets/success_widget.dart';
@@ -20,7 +20,7 @@ class CategoryScreen extends StatelessWidget {
           CategoryCubit()..getCategoryDataCubit(endPoint: endPoint),
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: mainAppBar(title: title),
+        appBar: mainAppBar(title: title, isLeading: true),
         drawer: const Drawer(
           child: MainDrawer(),
         ),
@@ -47,10 +47,7 @@ class CategoryScreen extends StatelessWidget {
             } else if (state is FaluierState) {
               return Text(state.error);
             } else {
-              return const SpinKitFadingCube(
-                color: Colors.pink,
-                size: 100.0,
-              );
+              return loader();
             }
           },
         ),

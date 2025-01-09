@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:products_api/core/widgets/app_bar.dart';
 import 'package:products_api/features/category/data/models/category_model.dart';
-import 'package:products_api/features/category/view/widgets/category_tab.dart';
+import 'package:products_api/features/details/view/widgets/category_tab.dart';
 import 'package:products_api/features/category/view/widgets/price_widget.dart';
 import 'package:products_api/features/category/view/widgets/rating_row.dart';
+import 'package:products_api/features/details/view/widgets/title_text.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key, required this.categoryModel});
@@ -13,7 +14,7 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: mainAppBar(title: 'Details'),
+      appBar: mainAppBar(title: 'Details', isLeading: true),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(
@@ -31,13 +32,7 @@ class DetailsScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                categoryModel.title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
+              child: titleText(categoryModel: categoryModel),
             ),
             const SizedBox(
               height: 12,

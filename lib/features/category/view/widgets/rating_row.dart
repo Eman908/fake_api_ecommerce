@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:products_api/core/constants/app_color.dart';
+import 'package:products_api/core/constants/app_size.dart';
 
 Row ratingRow({required dynamic categoryModel}) {
   return Row(
@@ -7,12 +9,15 @@ Row ratingRow({required dynamic categoryModel}) {
         "${categoryModel.ratingModel.rate.toString()} ⭐",
         style: const TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 16,
+          fontSize: AppSize.s16,
         ),
       ),
       Text(
         "/(${categoryModel.ratingModel.count} review)",
-        style: const TextStyle(fontSize: 14, color: Colors.grey),
+        style: const TextStyle(
+          fontSize: AppSize.s14,
+          color: AppColor.colorGrey,
+        ),
       ),
     ],
   );

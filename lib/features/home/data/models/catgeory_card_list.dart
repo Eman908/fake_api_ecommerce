@@ -1,65 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:products_api/core/constants/app_color.dart';
+import 'package:products_api/core/constants/app_string.dart';
 import 'package:products_api/features/category/view/screen/category_screen.dart';
 import 'package:products_api/features/home/data/models/category_card_model.dart';
 
 List<CategoryCardModel> categoryList(BuildContext context) {
   return [
     CategoryCardModel(
-      color: const Color(0xfff842c3),
+      color: AppColor.colorPink,
       icon: FontAwesomeIcons.plug,
-      title: 'Electronics',
+      title: AppString.electro,
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => const CategoryScreen(
-              endPoint: 'electronics',
-              title: 'Electronics',
+              endPoint: AppString.electroEP,
+              title: AppString.electro,
             ),
           ),
         );
       },
     ),
     CategoryCardModel(
-      color: const Color(0xff7b4bff),
+      color: AppColor.colorPurple,
       icon: FontAwesomeIcons.solidGem,
-      title: 'Jewelery',
+      title: AppString.jewl,
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => const CategoryScreen(
-              endPoint: 'jewelery',
-              title: 'Jewelery',
+              endPoint: AppString.jewlEP,
+              title: AppString.jewl,
             ),
           ),
         );
       },
     ),
     CategoryCardModel(
-      color: const Color(0xff1ba7fe),
+      color: AppColor.colorBlue,
       icon: FontAwesomeIcons.userTie,
-      title: "Men's Clothes",
+      title: AppString.menCloth,
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => const CategoryScreen(
-              endPoint: "men's%20clothing",
-              title: "Men's Clothes",
+              endPoint: AppString.menClothEP,
+              title: AppString.menCloth,
             ),
           ),
         );
       },
     ),
     CategoryCardModel(
-      color: const Color(0xff4bdf6d),
+      color: AppColor.colorGreen,
       icon: FontAwesomeIcons.shirt,
-      title: "Women's Clothes",
+      title: AppString.womenCloth,
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => const CategoryScreen(
-              endPoint: "women's%20clothing",
-              title: "Women's Clothes",
+              endPoint: AppString.womenClothEP,
+              title: AppString.womenCloth,
             ),
           ),
         );
