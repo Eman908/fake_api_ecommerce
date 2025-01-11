@@ -64,6 +64,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     spacing: 16,
                     children: [
                       TextFormField(
+                        autovalidateMode: AutovalidateMode.onUnfocus,
                         keyboardType: TextInputType.text,
                         validator: (value) {
                           return MyValidators.displayNameValidator(value);
@@ -74,6 +75,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                       TextFormField(
+                        autovalidateMode: AutovalidateMode.onUnfocus,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
                           return MyValidators.emailValidator(value);
@@ -84,6 +86,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                       TextFormField(
+                        autovalidateMode: AutovalidateMode.onUnfocus,
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           return MyValidators.phoneValidator(value);
@@ -94,6 +97,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                       TextFormField(
+                        autovalidateMode: AutovalidateMode.onUnfocus,
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           return MyValidators.nationalIdValidator(value);
@@ -104,6 +108,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                       TextFormField(
+                        autovalidateMode: AutovalidateMode.onUnfocus,
                         keyboardType: TextInputType.text,
                         validator: (value) {
                           return MyValidators.genderValidator(value);
@@ -114,6 +119,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                       TextFormField(
+                        autovalidateMode: AutovalidateMode.onUnfocus,
                         keyboardType: TextInputType.text,
                         validator: (value) {
                           return MyValidators.passwordValidator(value);
@@ -124,6 +130,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                       ),
                       TextFormField(
+                        autovalidateMode: AutovalidateMode.onUnfocus,
                         keyboardType: TextInputType.text,
                         validator: (value) {
                           return MyValidators.tokenValidator(value);
