@@ -12,4 +12,6 @@ class AppString {
   static const String category = "Category";
 
   static const String price = "Price: ";
+
+  static const String imagePicker = "Please Upload A Photo For Your Profile";
 }

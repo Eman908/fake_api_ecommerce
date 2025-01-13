@@ -13,3 +13,5 @@ final class AuthFailuerState extends AuthState {
 }
 
 final class AuthLoadingState extends AuthState {}
+
+final class ChooseImage extends AuthState {}

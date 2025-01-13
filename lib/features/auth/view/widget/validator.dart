@@ -28,8 +28,10 @@ class MyValidators {
     if (!value.startsWith('010')) {
       return 'Phone number must start with 010';
     }
-    if (value.length < 11) {
-      return 'phone must be at least 11 characters long';
+    if (value.isEmpty) {
+      return 'Phone number is required';
+    } else if (value.length != 11) {
+      return 'Phone number must be exactly 11 digits long';
     }
 
     return null;
@@ -49,7 +51,7 @@ class MyValidators {
     if (value!.isEmpty) {
       return 'Please enter a  nationalId';
     }
-    if (value.length < 14) {
+    if (value.length != 14) {
       return 'nationalId must be at least 14 characters long';
     }
     return null;
@@ -62,9 +64,9 @@ class MyValidators {
     return null;
   }
 
-  static String? genderValidator(String? value) {
+  static String? genderValidator({String? value}) {
     if (value!.isEmpty) {
-      return 'please enter   gender';
+      return 'please enter gender';
     }
     return null;
   }

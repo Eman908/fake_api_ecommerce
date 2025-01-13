@@ -29,8 +29,7 @@ class AuthData {
     } on DioException catch (e) {
       if (e.response != null) {
         print(e.response!.data["message"]);
-        var failuer = e.response!.data;
-        return failuer;
+        return e.response!.data;
       }
     }
   }

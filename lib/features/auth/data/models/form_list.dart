@@ -51,17 +51,6 @@ List<TextFieldModel> formList = [
     },
   ),
   TextFieldModel(
-    controller: genderController,
-    prefixIcon: Icons.people,
-    suffixIcons: null,
-    labelText: 'Gender',
-    hintText: 'Enter Gender',
-    isPassword: false,
-    validator: (value) {
-      return MyValidators.genderValidator(value);
-    },
-  ),
-  TextFieldModel(
     controller: passwordController,
     prefixIcon: Icons.lock,
     suffixIcons: Icons.visibility_off_outlined,
