@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:products_api/core/constants/app_color.dart';
 import 'package:products_api/features/auth/cubit/auth_cubit.dart';
 import 'package:products_api/features/auth/cubit/auth_state.dart';
 import 'package:products_api/features/auth/data/models/form_list.dart';
@@ -7,6 +9,7 @@ import 'package:products_api/features/auth/view/screen/auth_screen.dart';
 import 'package:products_api/features/auth/view/widget/custom_input_field.dart';
 import 'package:products_api/features/auth/view/widget/gender_selector.dart';
 import 'package:products_api/features/auth/view/widget/image_uploader.dart';
+import 'package:products_api/features/auth/view/widget/password_input_field.dart';
 import 'package:products_api/features/auth/view/widget/submit_button.dart';
 
 class FormBuilder extends StatelessWidget {
@@ -32,10 +35,14 @@ class FormBuilder extends StatelessWidget {
               CustomInputField(f: formList[2]),
               CustomInputField(f: formList[3]),
               GenderSelection(genderController: genderController),
+              PasswordCustomButton(),
               CustomInputField(f: formList[4]),
-              CustomInputField(f: formList[5]),
               if (state is AuthLoadingState)
-                const Center(child: CircularProgressIndicator()),
+                const Center(
+                    child: SpinKitThreeBounce(
+                  color: AppColor.colorBlue,
+                  size: 30.0,
+                )),
               submitButton(cubit: cubit)
             ],
           ),

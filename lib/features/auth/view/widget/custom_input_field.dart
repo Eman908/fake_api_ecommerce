@@ -3,10 +3,12 @@ import 'package:products_api/features/auth/data/models/text_field_model.dart';
 import 'package:products_api/features/auth/view/widget/border_style.dart';
 
 class CustomInputField extends StatefulWidget {
-  const CustomInputField({super.key, required this.f});
+  const CustomInputField({
+    super.key,
+    required this.f,
+  });
 
   final TextFieldModel f;
-
   @override
   State<CustomInputField> createState() => _CustomInputFieldState();
 }
@@ -18,7 +20,6 @@ class _CustomInputFieldState extends State<CustomInputField> {
       keyboardType: widget.f.type,
       autovalidateMode: AutovalidateMode.onUnfocus,
       validator: widget.f.validator,
-      obscureText: widget.f.isPassword,
       controller: widget.f.controller,
       decoration: InputDecoration(
         labelText: widget.f.labelText,
@@ -29,11 +30,10 @@ class _CustomInputFieldState extends State<CustomInputField> {
         suffixIcon: InkWell(
           onTap: () {
             setState(() {
-              widget.f.isPassword = !widget.f.isPassword;
+              widget.f.controller.clear();
             });
           },
-          child:
-              Icon(widget.f.isPassword ? widget.f.suffixIcons : widget.f.icon),
+          child: const Icon(Icons.remove),
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 20),
         enabledBorder: inputBorderStyle(Colors.grey),

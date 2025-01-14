@@ -7,7 +7,6 @@ List<TextFieldModel> formList = [
   TextFieldModel(
     controller: nameController,
     prefixIcon: Icons.person,
-    suffixIcons: null,
     labelText: 'Name',
     hintText: 'Enter Name',
     isPassword: false,
@@ -18,7 +17,6 @@ List<TextFieldModel> formList = [
   TextFieldModel(
     controller: emailController,
     prefixIcon: Icons.email,
-    suffixIcons: null,
     labelText: 'Email',
     hintText: 'Enter Email',
     isPassword: false,
@@ -30,7 +28,6 @@ List<TextFieldModel> formList = [
     type: TextInputType.number,
     controller: phoneController,
     prefixIcon: Icons.phone,
-    suffixIcons: null,
     labelText: 'Phone',
     hintText: 'Enter Phone',
     isPassword: false,
@@ -42,7 +39,6 @@ List<TextFieldModel> formList = [
     type: TextInputType.number,
     controller: idController,
     prefixIcon: Icons.picture_in_picture_outlined,
-    suffixIcons: null,
     labelText: 'National ID',
     hintText: 'Enter National ID',
     isPassword: false,
@@ -51,21 +47,8 @@ List<TextFieldModel> formList = [
     },
   ),
   TextFieldModel(
-    controller: passwordController,
-    prefixIcon: Icons.lock,
-    suffixIcons: Icons.visibility_off_outlined,
-    icon: Icons.visibility_outlined,
-    labelText: 'Password',
-    hintText: 'Enter Password',
-    isPassword: true,
-    validator: (value) {
-      return MyValidators.passwordValidator(value);
-    },
-  ),
-  TextFieldModel(
     controller: tokenController,
     prefixIcon: Icons.token,
-    suffixIcons: null,
     labelText: 'Token',
     hintText: 'Enter Token',
     isPassword: false,
