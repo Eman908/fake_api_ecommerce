@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:products_api/features/auth/view/screen/auth_screen.dart';
 import 'package:products_api/features/auth/view/widget/border_style.dart';
 import 'package:products_api/features/auth/view/widget/validator.dart';
 
@@ -7,8 +6,10 @@ import 'package:products_api/features/auth/view/widget/validator.dart';
 class PasswordCustomButton extends StatefulWidget {
   PasswordCustomButton({
     super.key,
+    required this.controller,
   });
   bool isPassword = true;
+  final TextEditingController controller;
 
   @override
   State<PasswordCustomButton> createState() => _PasswordCustomButtonState();
@@ -23,7 +24,7 @@ class _PasswordCustomButtonState extends State<PasswordCustomButton> {
         return MyValidators.passwordValidator(value);
       },
       obscureText: widget.isPassword,
-      controller: passwordController,
+      controller: widget.controller,
       decoration: InputDecoration(
         labelText: 'Password',
         labelStyle: const TextStyle(color: Colors.grey),

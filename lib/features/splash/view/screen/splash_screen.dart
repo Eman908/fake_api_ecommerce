@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:products_api/core/widgets/loader.dart';
-import 'package:products_api/features/home/view/screen/home_screen.dart';
+import 'package:products_api/features/auth_login/view/screen/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
           {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const HomeScreen(),
+                builder: (context) => const LoginScreen(),
               ),
             )
           }

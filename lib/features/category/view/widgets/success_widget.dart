@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:products_api/features/category/view/widgets/description.dart';
 import 'package:products_api/features/category/data/models/category_model.dart';
 import 'package:products_api/features/category/view/widgets/price_widget.dart';
@@ -16,7 +17,7 @@ class SuccessWidget extends StatelessWidget {
         elevation: 0,
         color: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(8.0.r),
           side: BorderSide(
             color: Colors.grey.shade300,
             width: 1.0,
@@ -29,8 +30,8 @@ class SuccessWidget extends StatelessWidget {
             children: [
               Image.network(
                 categoryModel.image,
-                width: 100,
-                height: 100,
+                width: 100.w,
+                height: 100.h,
               ),
               Expanded(
                 child: Column(
@@ -38,18 +39,11 @@ class SuccessWidget extends StatelessWidget {
                   children: [
                     titleText(categoryModel: categoryModel),
                     descriptionText(categoryModel: categoryModel),
-                    const SizedBox(
-                      height: 8,
+                    SizedBox(
+                      height: 8.h,
                     ),
-                    Row(
-                      children: [
-                        priceRow(categoryModel: categoryModel),
-                        const Spacer(
-                          flex: 1,
-                        ),
-                        ratingRow(categoryModel: categoryModel),
-                      ],
-                    )
+                    priceRow(categoryModel: categoryModel),
+                    ratingRow(categoryModel: categoryModel),
                   ],
                 ),
               )

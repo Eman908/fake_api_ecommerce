@@ -11,6 +11,7 @@ import 'package:products_api/features/auth/view/widget/gender_selector.dart';
 import 'package:products_api/features/auth/view/widget/image_uploader.dart';
 import 'package:products_api/features/auth/view/widget/password_input_field.dart';
 import 'package:products_api/features/auth/view/widget/submit_button.dart';
+import 'package:products_api/features/auth_login/view/screen/login_screen.dart';
 
 class FormBuilder extends StatelessWidget {
   const FormBuilder({
@@ -35,7 +36,9 @@ class FormBuilder extends StatelessWidget {
               CustomInputField(f: formList[2]),
               CustomInputField(f: formList[3]),
               GenderSelection(genderController: genderController),
-              PasswordCustomButton(),
+              PasswordCustomButton(
+                controller: passwordController,
+              ),
               CustomInputField(f: formList[4]),
               if (state is AuthLoadingState)
                 const Center(
@@ -43,7 +46,24 @@ class FormBuilder extends StatelessWidget {
                   color: AppColor.colorBlue,
                   size: 30.0,
                 )),
-              submitButton(cubit: cubit)
+              submitButton(cubit: cubit),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                const Text("Already have account ? "),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const LoginScreen();
+                        },
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "LogIn",
+                  ),
+                ),
+              ]),
             ],
           ),
         );
