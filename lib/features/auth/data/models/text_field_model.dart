@@ -5,7 +5,6 @@ class TextFieldModel {
   final IconData? prefixIcon;
   final String labelText;
   final String hintText;
-  bool isPassword;
 
   final String? Function(String?)? validator;
   final TextInputType? type;
@@ -14,7 +13,6 @@ class TextFieldModel {
     required this.hintText,
     required this.controller,
     this.prefixIcon,
-    required this.isPassword,
     required this.validator,
     this.type,
   });

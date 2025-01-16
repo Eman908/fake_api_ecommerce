@@ -17,6 +17,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textInputAction: TextInputAction.next,
       keyboardType: widget.f.type,
       autovalidateMode: AutovalidateMode.onUnfocus,
       validator: widget.f.validator,

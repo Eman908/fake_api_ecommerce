@@ -9,7 +9,6 @@ List<TextFieldModel> formList = [
     prefixIcon: Icons.person,
     labelText: 'Name',
     hintText: 'Enter Name',
-    isPassword: false,
     validator: (value) {
       return MyValidators.displayNameValidator(value);
     },
@@ -19,7 +18,6 @@ List<TextFieldModel> formList = [
     prefixIcon: Icons.email,
     labelText: 'Email',
     hintText: 'Enter Email',
-    isPassword: false,
     validator: (value) {
       return MyValidators.emailValidator(value);
     },
@@ -30,7 +28,6 @@ List<TextFieldModel> formList = [
     prefixIcon: Icons.phone,
     labelText: 'Phone',
     hintText: 'Enter Phone',
-    isPassword: false,
     validator: (value) {
       return MyValidators.phoneValidator(value);
     },
@@ -41,7 +38,6 @@ List<TextFieldModel> formList = [
     prefixIcon: Icons.picture_in_picture_outlined,
     labelText: 'National ID',
     hintText: 'Enter National ID',
-    isPassword: false,
     validator: (value) {
       return MyValidators.nationalIdValidator(value);
     },
@@ -51,7 +47,6 @@ List<TextFieldModel> formList = [
     prefixIcon: Icons.token,
     labelText: 'Token',
     hintText: 'Enter Token',
-    isPassword: false,
     validator: (value) {
       return MyValidators.tokenValidator(value);
     },

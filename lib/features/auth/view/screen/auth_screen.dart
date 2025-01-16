@@ -28,7 +28,7 @@ class _AuthScreenState extends State<AuthScreen> {
       create: (context) => AuthCubit(),
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: appBarForm(),
+        appBar: appBarForm(title: 'Sign Up'),
         body: BlocConsumer<AuthCubit, AuthState>(
           listener: (BuildContext context, state) {
             if (state is AuthSuccessState) {

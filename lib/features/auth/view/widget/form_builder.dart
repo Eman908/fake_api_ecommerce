@@ -19,6 +19,7 @@ class FormBuilder extends StatelessWidget {
     super.key,
   });
   final AuthCubit cubit;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthCubit, AuthState>(
@@ -31,15 +32,25 @@ class FormBuilder extends StatelessWidget {
               const Divider(
                 thickness: 1,
               ),
-              CustomInputField(f: formList[0]),
-              CustomInputField(f: formList[1]),
-              CustomInputField(f: formList[2]),
-              CustomInputField(f: formList[3]),
+              CustomInputField(
+                f: formList[0],
+              ),
+              CustomInputField(
+                f: formList[1],
+              ),
+              CustomInputField(
+                f: formList[2],
+              ),
+              CustomInputField(
+                f: formList[3],
+              ),
               GenderSelection(genderController: genderController),
               PasswordCustomButton(
                 controller: passwordController,
               ),
-              CustomInputField(f: formList[4]),
+              CustomInputField(
+                f: formList[4],
+              ),
               if (state is AuthLoadingState)
                 const Center(
                     child: SpinKitThreeBounce(

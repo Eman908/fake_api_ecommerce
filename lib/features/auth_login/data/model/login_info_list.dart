@@ -9,7 +9,6 @@ List<TextFieldModel> loginList = [
     prefixIcon: Icons.email,
     labelText: 'Email',
     hintText: 'Enter Email',
-    isPassword: false,
     validator: (value) {
       return MyValidators.emailValidator(value);
     },
