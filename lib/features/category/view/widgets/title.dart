@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:products_api/core/constants/app_size.dart';
 
 Text titleText({required dynamic categoryModel}) {
@@ -7,8 +6,8 @@ Text titleText({required dynamic categoryModel}) {
     categoryModel.title,
     maxLines: 1,
     overflow: TextOverflow.ellipsis,
-    style: TextStyle(
-      fontSize: AppSize.s18.sp,
+    style: const TextStyle(
+      fontSize: AppSize.s18,
       fontWeight: FontWeight.bold,
     ),
   );

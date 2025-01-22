@@ -30,6 +30,7 @@ class SuccessWidget extends StatelessWidget {
             children: [
               Image.network(
                 categoryModel.image,
+                fit: BoxFit.contain,
                 width: 100.w,
                 height: 100.h,
               ),
@@ -42,11 +43,29 @@ class SuccessWidget extends StatelessWidget {
                     SizedBox(
                       height: 8.h,
                     ),
-                    priceRow(categoryModel: categoryModel),
-                    ratingRow(categoryModel: categoryModel),
+                    Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            priceRow(categoryModel: categoryModel),
+                            ratingRow(categoryModel: categoryModel),
+                          ],
+                        ),
+                        const Spacer(
+                          flex: 1,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.shopping_bag_outlined,
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

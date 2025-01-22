@@ -12,8 +12,8 @@ Container categoryTab({required dynamic categoryModel}) {
       padding: EdgeInsets.all(4.0.h),
       child: Text(
         categoryModel.category,
-        style: TextStyle(
-          fontSize: AppSize.s16.sp,
+        style: const TextStyle(
+          fontSize: AppSize.s16,
           color: Colors.grey,
         ),
       ),

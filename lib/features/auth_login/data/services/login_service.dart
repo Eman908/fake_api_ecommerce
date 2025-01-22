@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:products_api/features/auth_login/data/model/login_info_list.dart';
 
 class LoginAuth {
   getLoginAuthData({required email, required password}) async {
@@ -8,11 +9,12 @@ class LoginAuth {
         data: {"email": email, "password": password});
     try {
       var loginJsonData = response.data;
-      print(loginJsonData);
+      var newToken = loginJsonData["user"]["token"];
+      print(newToken);
+      CashToken.shared!.setString("token", newToken);
       return loginJsonData;
     } on DioException catch (e) {
       if (e.response != null) {
-        print(e.response!.data);
         return e.response!.data;
       }
     }

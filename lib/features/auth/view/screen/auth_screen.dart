@@ -4,6 +4,7 @@ import 'package:products_api/features/auth/cubit/auth_cubit.dart';
 import 'package:products_api/features/auth/cubit/auth_state.dart';
 import 'package:products_api/features/auth/view/widget/app_bar_form.dart';
 import 'package:products_api/features/auth/view/widget/form_builder.dart';
+import 'package:products_api/features/auth_login/view/screen/login_screen.dart';
 
 final TextEditingController nameController = TextEditingController();
 final TextEditingController emailController = TextEditingController();
@@ -24,46 +25,46 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthCubit(),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: appBarForm(title: 'Sign Up'),
-        body: BlocConsumer<AuthCubit, AuthState>(
-          listener: (BuildContext context, state) {
-            if (state is AuthSuccessState) {
-              if (state.userData["status"] == "success") {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    backgroundColor: Colors.green,
-                    content: Text(state.userData["message"]),
-                  ),
-                );
-              }
-              if (state.userData["status"] == "error") {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    backgroundColor: Colors.red,
-                    content: Text(state.userData["message"]),
-                  ),
-                );
-              }
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: appBarForm(title: 'Sign Up'),
+      body: BlocConsumer<AuthCubit, AuthState>(
+        listener: (BuildContext context, state) {
+          if (state is AuthSuccessState) {
+            if (state.userData["status"] == "success") {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: Colors.green,
+                  content: Text(state.userData["message"]),
+                ),
+              );
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const LoginScreen();
+              }));
             }
-          },
-          builder: (context, state) {
-            AuthCubit cubit = BlocProvider.of(context);
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: Builder(builder: (context) {
-                return SingleChildScrollView(
-                  child: FormBuilder(
-                    cubit: cubit,
-                  ),
-                );
-              }),
-            );
-          },
-        ),
+            if (state.userData["status"] == "error") {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: Colors.red,
+                  content: Text(state.userData["message"]),
+                ),
+              );
+            }
+          }
+        },
+        builder: (context, state) {
+          AuthCubit cubit = BlocProvider.of(context);
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            child: Builder(builder: (context) {
+              return SingleChildScrollView(
+                child: FormBuilder(
+                  cubit: cubit,
+                ),
+              );
+            }),
+          );
+        },
       ),
     );
   }

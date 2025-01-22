@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:products_api/core/constants/app_color.dart';
 import 'package:products_api/core/constants/app_size.dart';
 
@@ -8,15 +7,15 @@ Row ratingRow({required dynamic categoryModel}) {
     children: [
       Text(
         "${categoryModel.ratingModel.rate.toString()} ⭐",
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: AppSize.s16.sp,
+          fontSize: AppSize.s16,
         ),
       ),
       Text(
         "/(${categoryModel.ratingModel.count} review)",
-        style: TextStyle(
-          fontSize: AppSize.s14.sp,
+        style: const TextStyle(
+          fontSize: AppSize.s14,
           color: AppColor.colorGrey,
         ),
       ),
