@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:products_api/core/constants/app_size.dart';
 
-AppBar mainAppBar({required String title, required bool isLeading}) {
+AppBar mainAppBar(
+    {required String title,
+    required bool isLeading,
+    required void Function()? onPressed}) {
   return AppBar(
     title: Text(
       title,
@@ -19,5 +22,16 @@ AppBar mainAppBar({required String title, required bool isLeading}) {
     iconTheme: const IconThemeData(
       color: Colors.white, //change your color here
     ),
+    actions: [
+      Padding(
+        padding: const EdgeInsets.only(right: 8),
+        child: IconButton(
+            onPressed: onPressed,
+            icon: const Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
+            )),
+      )
+    ],
   );
 }

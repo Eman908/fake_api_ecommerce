@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:products_api/core/widgets/app_bar.dart';
+import 'package:products_api/features/cart/view/screen/cart_screen.dart';
 import 'package:products_api/features/category/data/models/category_model.dart';
 import 'package:products_api/features/details/view/widgets/category_tab.dart';
 import 'package:products_api/features/category/view/widgets/price_widget.dart';
@@ -14,7 +15,19 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: mainAppBar(title: 'Details', isLeading: true),
+      appBar: mainAppBar(
+        title: 'Details',
+        isLeading: true,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return const CartScreen();
+              },
+            ),
+          );
+        },
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(

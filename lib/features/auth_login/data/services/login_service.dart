@@ -9,9 +9,13 @@ class LoginAuth {
         data: {"email": email, "password": password});
     try {
       var loginJsonData = response.data;
+
       var newToken = loginJsonData["user"]["token"];
-      print(newToken);
-      CashToken.shared!.setString("token", newToken);
+      var nationalId = loginJsonData["user"]["nationalId"];
+
+      await CashToken.shared!.setString("nID", nationalId);
+      await CashToken.shared!.setString("token", newToken);
+
       return loginJsonData;
     } on DioException catch (e) {
       if (e.response != null) {

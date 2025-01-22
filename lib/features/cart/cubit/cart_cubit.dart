@@ -7,9 +7,23 @@ class CartCubit extends Cubit<CartState> {
   static CartCubit get(context) => BlocProvider.of(context);
   CartService cartService = CartService();
 
-  getAddToCartCubit() {
+  getAddToCartCubit({required String productId}) {
     emit(CartLoadingState());
-    cartService.gerCartAdd();
+    cartService.gerCartAdd(productId: productId);
     emit(CartSuccessState());
+  }
+
+  getAllProductsCubit() async {
+    emit(CartLoadingState());
+    var success = await cartService.getCartProducts();
+    emit(CartProductsSuccess(cartProducts: success));
+    // getAllProductsCubit();
+  }
+
+  cartDeleteCubit({required String productId}) async {
+    emit(CartLoadingState());
+    await cartService.deleteProduct(productId: productId);
+    emit(CartDeleteState());
+    getAllProductsCubit();
   }
 }

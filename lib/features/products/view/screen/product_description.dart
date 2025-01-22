@@ -4,6 +4,7 @@ import 'package:products_api/core/constants/app_size.dart';
 import 'package:products_api/core/constants/app_string.dart';
 import 'package:products_api/core/widgets/app_bar.dart';
 import 'package:products_api/features/cart/cubit/cart_cubit.dart';
+import 'package:products_api/features/cart/view/screen/cart_screen.dart';
 import 'package:products_api/features/products/data/model/products_model.dart';
 
 class ProductDescription extends StatelessWidget {
@@ -13,7 +14,19 @@ class ProductDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: mainAppBar(title: 'Details', isLeading: true),
+      appBar: mainAppBar(
+        title: 'Details',
+        isLeading: true,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return const CartScreen();
+              },
+            ),
+          );
+        },
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(
@@ -92,7 +105,8 @@ class ProductDescription extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16)),
                 onPressed: () {
-                  CartCubit.get(context).getAddToCartCubit();
+                  CartCubit.get(context)
+                      .getAddToCartCubit(productId: productsModel.productId);
                 },
                 padding: const EdgeInsets.all(16),
                 color: Colors.blueAccent,

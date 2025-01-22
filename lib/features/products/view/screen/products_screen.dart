@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:products_api/core/widgets/app_bar.dart';
 import 'package:products_api/core/widgets/drawer.dart';
+import 'package:products_api/features/cart/view/screen/cart_screen.dart';
 import 'package:products_api/features/products/cubit/product_cubit.dart';
 import 'package:products_api/features/products/cubit/product_state.dart';
 import 'package:products_api/features/products/view/screen/product_description.dart';
@@ -14,7 +15,19 @@ class ProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: mainAppBar(title: "Products", isLeading: true),
+      appBar: mainAppBar(
+        title: "Products",
+        isLeading: true,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return const CartScreen();
+              },
+            ),
+          );
+        },
+      ),
       drawer: const Drawer(
         child: MainDrawer(),
       ),

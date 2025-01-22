@@ -3,7 +3,6 @@ import 'package:products_api/core/constants/app_color.dart';
 import 'package:products_api/core/constants/app_size.dart';
 import 'package:products_api/core/constants/app_string.dart';
 import 'package:products_api/features/cart/cubit/cart_cubit.dart';
-import 'package:products_api/features/cart/cubit/cart_state.dart';
 import 'package:products_api/features/products/data/model/products_model.dart';
 
 class ProductSuccessWidget extends StatelessWidget {
@@ -69,7 +68,8 @@ class ProductSuccessWidget extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    CartCubit.get(context).getAddToCartCubit();
+                    CartCubit.get(context)
+                        .getAddToCartCubit(productId: productsModel.productId);
                   },
                   icon: const Icon(
                     Icons.shopping_bag_outlined,

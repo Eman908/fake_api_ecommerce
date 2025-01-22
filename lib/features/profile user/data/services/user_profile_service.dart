@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:products_api/features/auth_login/data/model/login_info_list.dart';
+import 'package:products_api/core/widgets/value.dart';
 import 'package:products_api/features/profile%20user/data/models/user_profile_model.dart';
-
-var getToken = CashToken.shared!.get("token");
 
 class UserProfileService {
   Future<UserProfileModelData> getUserProfileData() async {

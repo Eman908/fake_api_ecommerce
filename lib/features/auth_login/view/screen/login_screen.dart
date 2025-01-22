@@ -35,11 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 content: Text(state.loginUserData["message"]),
               ),
             );
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return const ProductsScreen();
-            }));
-          }
-          if (state.loginUserData["status"] == "error") {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return const ProductsScreen();
+                },
+              ),
+            );
+          } else if (state.loginUserData["status"] == "error") {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: Colors.red,
