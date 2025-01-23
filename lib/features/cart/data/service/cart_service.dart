@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:products_api/core/widgets/value.dart';
 import 'package:products_api/features/cart/data/model/cart_product_model.dart';
@@ -11,7 +13,7 @@ class CartService {
       data: {"nationalId": getId, "productId": productId, "quantity": "1"},
     );
     var jsonData = response.data;
-
+    log(jsonData.toString());
     return jsonData;
   }
 

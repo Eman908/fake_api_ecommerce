@@ -27,7 +27,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: appBarForm(title: 'Sign Up'),
+      appBar: appBarForm(title: 'Sign Up', isLeading: false),
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (BuildContext context, state) {
           if (state is AuthSuccessState) {

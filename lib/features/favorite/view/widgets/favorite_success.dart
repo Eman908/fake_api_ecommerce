@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:products_api/features/cart/data/model/cart_product_model.dart';
+import 'package:products_api/features/favorite/data/model/favorite_model.dart';
 
-class CartAllProducts extends StatelessWidget {
-  const CartAllProducts({super.key, required this.cp, required this.onPressed});
-  final CartProductModel cp;
+class FavoriteSuccessscreen extends StatelessWidget {
+  const FavoriteSuccessscreen(
+      {super.key, required this.fav, required this.onPressed});
+  final FavoriteModel fav;
   final void Function()? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -23,18 +25,18 @@ class CartAllProducts extends StatelessWidget {
           color: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(8),
           image: DecorationImage(
-            image: NetworkImage(cp.image),
+            image: NetworkImage(fav.image),
           ),
         ),
       ),
       title: Text(
-        cp.name,
+        fav.name,
         style: const TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
       subtitle: Text(
-        "Price : ${cp.price} | Quantity : ${cp.quantity}",
+        "Price : ${fav.price} ",
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(

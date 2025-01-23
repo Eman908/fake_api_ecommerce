@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:products_api/core/widgets/app_bar.dart';
 import 'package:products_api/core/widgets/drawer.dart';
 import 'package:products_api/features/cart/view/screen/cart_screen.dart';
+import 'package:products_api/features/favorite/view/screen/favorite_screen.dart';
 import 'package:products_api/features/products/cubit/product_cubit.dart';
 import 'package:products_api/features/products/cubit/product_state.dart';
 import 'package:products_api/features/products/view/screen/product_description.dart';
@@ -27,6 +28,15 @@ class ProductsScreen extends StatelessWidget {
             ),
           );
         },
+        onPressed2: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return const FavoriteScreen();
+              },
+            ),
+          );
+        },
       ),
       drawer: const Drawer(
         child: MainDrawer(),
@@ -41,7 +51,7 @@ class ProductsScreen extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
-                childAspectRatio: 0.8,
+                childAspectRatio: 0.7,
                 children: List.generate(
                   state.productData.length,
                   (index) {

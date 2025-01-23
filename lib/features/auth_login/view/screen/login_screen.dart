@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
       builder: (context, state) {
         LoginCubit cubit = BlocProvider.of(context);
         return Scaffold(
-          appBar: appBarForm(title: 'LogIn'),
+          appBar: appBarForm(title: 'LogIn', isLeading: false),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Form(

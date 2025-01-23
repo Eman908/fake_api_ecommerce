@@ -12,7 +12,7 @@ class UserProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: appBarForm(title: "Profile"),
+      appBar: appBarForm(title: "Profile", isLeading: false),
       body: BlocBuilder<UserProfileCubit, UserProfileState>(
         builder: (context, state) {
           if (state is UserSuccessState) {

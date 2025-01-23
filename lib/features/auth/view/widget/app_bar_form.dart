@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:products_api/core/constants/app_size.dart';
 
-AppBar appBarForm({required String title}) {
+AppBar appBarForm({required String title, required bool isLeading}) {
   return AppBar(
     toolbarHeight: 80,
     elevation: 4,
@@ -15,6 +15,7 @@ AppBar appBarForm({required String title}) {
     ),
     centerTitle: true,
     backgroundColor: Colors.blueAccent,
-    automaticallyImplyLeading: false,
+    automaticallyImplyLeading: isLeading,
+    iconTheme: const IconThemeData(color: Colors.white),
   );
 }

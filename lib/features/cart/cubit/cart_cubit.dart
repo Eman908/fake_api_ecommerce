@@ -11,13 +11,13 @@ class CartCubit extends Cubit<CartState> {
     emit(CartLoadingState());
     cartService.gerCartAdd(productId: productId);
     emit(CartSuccessState());
+    getAllProductsCubit();
   }
 
   getAllProductsCubit() async {
     emit(CartLoadingState());
     var success = await cartService.getCartProducts();
     emit(CartProductsSuccess(cartProducts: success));
-    // getAllProductsCubit();
   }
 
   cartDeleteCubit({required String productId}) async {

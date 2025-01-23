@@ -5,6 +5,8 @@ import 'package:products_api/core/constants/app_string.dart';
 import 'package:products_api/core/widgets/app_bar.dart';
 import 'package:products_api/features/cart/cubit/cart_cubit.dart';
 import 'package:products_api/features/cart/view/screen/cart_screen.dart';
+import 'package:products_api/features/favorite/cubit/favorite_cubit.dart';
+import 'package:products_api/features/favorite/view/screen/favorite_screen.dart';
 import 'package:products_api/features/products/data/model/products_model.dart';
 
 class ProductDescription extends StatelessWidget {
@@ -22,6 +24,15 @@ class ProductDescription extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) {
                 return const CartScreen();
+              },
+            ),
+          );
+        },
+        onPressed2: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return const FavoriteScreen();
               },
             ),
           );
@@ -101,32 +112,53 @@ class ProductDescription extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: MaterialButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)),
-                onPressed: () {
-                  CartCubit.get(context)
-                      .getAddToCartCubit(productId: productsModel.productId);
-                },
-                padding: const EdgeInsets.all(16),
-                color: Colors.blueAccent,
-                textColor: Colors.white,
-                child: const Row(
-                  spacing: 16,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Add To Cart",
-                      style: TextStyle(
-                        fontSize: 20,
+              child: Row(
+                spacing: 8,
+                children: [
+                  CircleAvatar(
+                    radius: 32,
+                    child: IconButton(
+                      onPressed: () {
+                        FavoriteCubit.get(context).addToFavoriteCubit(
+                          productId: productsModel.productId,
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.favorite_border,
+                        size: 32,
                       ),
                     ),
-                    Icon(
-                      Icons.shopping_bag_outlined,
-                      color: Colors.white,
+                  ),
+                  Expanded(
+                    child: MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
+                      onPressed: () {
+                        CartCubit.get(context).getAddToCartCubit(
+                            productId: productsModel.productId);
+                      },
+                      padding: const EdgeInsets.all(16),
+                      color: Colors.blueAccent,
+                      textColor: Colors.white,
+                      child: const Row(
+                        spacing: 16,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Add To Cart",
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                          Icon(
+                            Icons.shopping_bag_outlined,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             )
           ],
